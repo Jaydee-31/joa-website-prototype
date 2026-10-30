@@ -381,3 +381,29 @@ body.mobile-preview { background: #EFE3E6; }
 @media (width >= 1024px) {
   .admin-sidebar { flex: 0 0 272px; }
 }
+
+/* Services price table. On phones the promo price stacks under the regular price
+   so the two never run into each other. */
+.price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr) minmax(0, 1fr) 120px;
+}
+.price-row__reg, .price-row__promo { white-space: nowrap; }
+.price-row__narrow { display: none; }
+@media (width < 640px) {
+  .price-row {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-areas: "name reg book" "name promo book";
+    column-gap: 12px !important; row-gap: 0 !important;
+    padding-left: 16px !important; padding-right: 16px !important;
+  }
+  .price-row > :first-child { grid-area: name; }
+  .price-row__reg { grid-area: reg; font-size: 13px; }
+  .price-row__promo { grid-area: promo; }
+  .price-row > :last-child { grid-area: book; }
+  .price-row--head { grid-template-areas: "name reg book"; }
+  .price-row--head .price-row__promo { display: none; }
+  .price-row--head .price-row__reg { font-size: inherit; }
+  .price-row__wide { display: none; }
+  .price-row__narrow { display: inline; }
+}

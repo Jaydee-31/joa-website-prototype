@@ -316,9 +316,8 @@ export default class Services extends ReactComponent {
             }}
           >
             <div
+              className="price-row price-row--head"
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'minmax(0, 2.4fr) minmax(0, 1fr) minmax(0, 1fr) 120px',
                 background: '#D6246E',
                 color: '#FFFFFF',
                 fontSize: '12px',
@@ -330,16 +329,18 @@ export default class Services extends ReactComponent {
               }}
             >
               <span>SERVICE</span>
-              <span style={{ textAlign: 'right' }}>REGULAR</span>
-              <span style={{ textAlign: 'right' }}>PROMO</span>
+              <span className="price-row__reg" style={{ textAlign: 'right' }}>
+                <span className="price-row__wide">REGULAR</span>
+                <span className="price-row__narrow">PRICE</span>
+              </span>
+              <span className="price-row__promo" style={{ textAlign: 'right' }}>PROMO</span>
               <span />
             </div>
             {(v.items || []).map((it, i0) => (
               <div
                 key={i0}
+                className="price-row"
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'minmax(0, 2.4fr) minmax(0, 1fr) minmax(0, 1fr) 120px',
                   padding: '10px 24px',
                   gap: '12px',
                   alignItems: 'center',
@@ -352,8 +353,8 @@ export default class Services extends ReactComponent {
                   {it.name}
                   <span style={{ display: 'block', fontSize: '12px', color: '#665859' }}>{it.note}</span>
                 </span>
-                <span style={{ textAlign: 'right', color: '#665859', textDecoration: it.strike }}>{it.reg}</span>
-                <span style={{ textAlign: 'right', fontWeight: '700', color: it.promoColor }}>{it.promo}</span>
+                <span className="price-row__reg" style={{ textAlign: 'right', color: '#665859', textDecoration: it.strike }}>{it.reg}</span>
+                <span className="price-row__promo" style={{ textAlign: 'right', fontWeight: '700', color: it.promoColor }}>{it.promo}</span>
                 <Link
                   to="/book"
                   style={{
