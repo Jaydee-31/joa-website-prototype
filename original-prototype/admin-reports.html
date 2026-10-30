@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOA Admin — Reports</title>
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div id="app"></div>
+
+<template id="view">
+<div style="font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #2A2627; background: #FFF8F4; font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 232px; max-width: 100%; background: #2A2627; border-right: 1px solid #2A2627; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<img src="images/logo-light.png" alt="JOA Spa &amp; Salon" style="height: 52px; width: auto; align-self: flex-start">
+<nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 2px; font-weight: 600">
+<a href="admin-dashboard.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Dashboard</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">FRONT DESK</p>
+<a href="admin-bookings.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Bookings<span style="font-size: 11px; background: #D6246E; color: #FFFFFF; border-radius: 999px; padding: 1px 8px">3</span></a>
+<a href="admin-calendar.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Calendar</a>
+<a href="admin-customers.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Customers</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SALES &amp; EXPENSES</p>
+<a href="admin-pos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Sales tracking</a>
+<a href="admin-expenses.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Expenses</a>
+<a href="admin-promos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Promos</a>
+<a href="admin-reports.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; background: #D6246E; color: #FFFFFF; text-decoration: none; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Reports</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SETUP</p>
+<a href="admin-services.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Services &amp; prices</a>
+<a href="admin-branches.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Branches &amp; hours</a>
+<a href="admin-staff.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Staff &amp; schedules</a>
+<a href="admin-settings.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Settings</a>
+</nav>
+<a href="index.html" style="margin-top: auto; display: flex; align-items: center; min-height: 42px; padding: 0 14px; font-weight: 600; color: #C8A96E">View website ↗</a>
+</aside>
+
+<main style="flex: 999 1 640px; min-width: 0; padding: 24px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center">
+<div>
+<p style="margin: 0; font-size: 13px; color: #665859">October 2026 · all branches <span style="margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 6px; background: #F1E8EA">SAMPLE DATA</span></p>
+<h1 style="margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700">Reports</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center"><label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">Period <select style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px; color: #2A2627"><option>This month</option><option>Last month</option><option>Last 90 days</option><option>This year</option><option>Custom…</option></select></label><label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">Branch <select style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px; color: #2A2627"><option>All branches</option><option>Malaybalay — Poblacion</option><option>Malaybalay — Purok 4B</option><option>Valencia City</option><option>Maramag</option></select></label><button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 1.5px solid #D6246E; background: #FFFDFB; color: #D6246E; font-family: inherit; font-weight: 600; cursor: pointer">Download PDF</button><button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Export Excel</button></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+<div style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px"><p style="margin: 0; font-size: 12px; font-weight: 600; color: #665859">Revenue</p><p style="margin: 4px 0 0; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.01em">₱412,380</p><p style="margin: 0; font-size: 12px; color: #665859">Oct 1–19 · at promo prices</p></div>
+<div style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px"><p style="margin: 0; font-size: 12px; font-weight: 600; color: #665859">Completed services</p><p style="margin: 4px 0 0; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.01em">531</p><p style="margin: 0; font-size: 12px; color: #665859">+14% vs. same days in Sept</p></div>
+<div style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px"><p style="margin: 0; font-size: 12px; font-weight: 600; color: #665859">Average spend per visit</p><p style="margin: 4px 0 0; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.01em">₱777</p><p style="margin: 0; font-size: 12px; color: #665859">Up from ₱702</p></div>
+<div style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px"><p style="margin: 0; font-size: 12px; font-weight: 600; color: #665859">Promo discounts given</p><p style="margin: 4px 0 0; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.01em">₱398,900</p><p style="margin: 0; font-size: 12px; color: #665859">50% OFF All Services</p></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+<section style="flex: 999 1 520px; min-width: 0; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px">
+<h2 style="margin: 0; font-size: 16px">Monthly revenue</h2>
+<div style="display: flex; align-items: flex-end; gap: 18px; height: 220px; margin-top: 16px">
+<sc-for list="{{months}}" as="m" hint-placeholder-count="6">
+<div style="flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px">
+<span style="font-size: 12px; font-weight: 600; color: #665859">{{m.amt}}</span>
+<div style="width: 100%; max-width: 64px; height: {{m.h}}; border-radius: 8px 8px 3px 3px; background: {{m.bg}}; box-shadow: 0 8px 16px -10px rgba(214,36,110,0.6)"></div>
+<span style="font-size: 12px; font-weight: 700">{{m.label}}</span>
+</div>
+</sc-for>
+</div>
+<p style="margin: 10px 0 0; font-size: 12px; color: #665859">October is month-to-date. The 50% promo started 1 October.</p>
+</section>
+<section style="flex: 1 1 320px; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 16px">Revenue by branch</h2>
+<sc-for list="{{branches}}" as="b" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{b.name}}</span><strong>{{b.amt}}</strong></div><div style="height: 10px; border-radius: 999px; background: #F8EDF0"><div style="height: 10px; border-radius: 999px; background: #D6246E; width: {{b.w}}"></div></div></div>
+</sc-for>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<section style="flex: 1 1 360px; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 16px">Revenue by category</h2>
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="7">
+<div style="display: grid; grid-template-columns: 130px minmax(0, 1fr) 90px; gap: 10px; align-items: center; font-size: 13px"><span>{{c.name}}</span><div style="height: 10px; border-radius: 999px; background: #F8EDF0"><div style="height: 10px; border-radius: 999px; background: #F28BB0; width: {{c.w}}"></div></div><strong style="text-align: right">{{c.amt}}</strong></div>
+</sc-for>
+</section>
+<section style="flex: 999 1 520px; min-width: 0; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); overflow: hidden">
+<h2 style="margin: 0; padding: 16px 20px; font-size: 16px; border-bottom: 1px solid #EFE1E4">Staff performance</h2>
+<div style="overflow-x: auto"><div style="min-width: 560px">
+<div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) 80px 110px 110px; gap: 10px; padding: 10px 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #665859; background: #FFF5F7"><span>STAFF</span><span>BRANCH</span><span>SERVICES</span><span style="text-align: right">REVENUE</span><span style="text-align: right">COMMISSION</span></div>
+<sc-for list="{{staff}}" as="s" hint-placeholder-count="6">
+<div style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) 80px 110px 110px; gap: 10px; padding: 11px 20px; border-top: 1px solid #F8EDF0; font-size: 14px"><strong>{{s.name}}</strong><span style="color: #665859">{{s.branch}}</span><span>{{s.n}}</span><span style="text-align: right">{{s.rev}}</span><span style="text-align: right; color: #665859">{{s.com}}</span></div>
+</sc-for>
+</div></div>
+</section>
+</div>
+</main>
+</div>
+</template>
+
+<script src="js/joa.js"></script>
+<script>
+class Component extends JOA.Component {
+renderVals() {
+  const peso = (n) => '₱' + n.toLocaleString('en-US');
+  const M = [['May', 286400], ['Jun', 301900], ['Jul', 295300], ['Aug', 318700], ['Sep', 344200], ['Oct', 412380]];
+  const mx = 412380;
+  const months = M.map((m, i) => ({ label: m[0], amt: '₱' + Math.round(m[1] / 1000) + 'k', h: Math.round(m[1] / mx * 170) + 'px', bg: i === 5 ? '#D6246E' : '#F7A8C4' }));
+  const B = [['Malaybalay — Poblacion', 148200], ['Malaybalay — Purok 4B', 112600], ['Valencia City', 84900], ['Maramag', 66680]];
+  const branches = B.map((b) => ({ name: b[0], amt: peso(b[1]), w: Math.round(b[1] / 148200 * 100) + '%' }));
+  const Cc = [['Hair', 168400], ['Lashes & Brows', 79300], ['Facial & Skin', 61200], ['Aesthetics', 48900], ['Nails', 28700], ['Fillers & PRP', 17400], ['Spa & Wellness', 8480]];
+  const cats = Cc.map((c) => ({ name: c[0], amt: peso(c[1]), w: Math.round(c[1] / 168400 * 100) + '%' }));
+  const St = [['Ana', 'Malaybalay Pob.', 92, 71400], ['Mae', 'Valencia City', 74, 48300], ['Liza', 'Purok 4B', 88, 39800], ['Grace', 'Maramag', 51, 36900], ['Jun', 'Purok 4B', 63, 22100], ['[Doctor]', 'Visiting', 19, 41200]];
+  const staff = St.map((s) => ({ name: s[0], branch: s[1], n: s[2], rev: peso(s[3]), com: peso(Math.round(s[3] * 0.1)) }));
+  return { months, branches, cats, staff };
+}
+}
+
+JOA.mount(Component);
+</script>
+</body>
+</html>

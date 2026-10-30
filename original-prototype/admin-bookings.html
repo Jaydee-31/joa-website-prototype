@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOA Admin — Bookings</title>
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div id="app"></div>
+
+<template id="view">
+<div style="font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #2A2627; background: #FFF8F4; font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 232px; max-width: 100%; background: #2A2627; border-right: 1px solid #2A2627; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<img src="images/logo-light.png" alt="JOA Spa &amp; Salon" style="height: 52px; width: auto; align-self: flex-start">
+<nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 2px; font-weight: 600">
+<a href="admin-dashboard.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Dashboard</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">FRONT DESK</p>
+<a href="admin-bookings.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 0 14px; border-radius: 10px; background: #D6246E; color: #FFFFFF; text-decoration: none; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Bookings<span style="font-size: 11px; background: #D6246E; color: #FFFFFF; border-radius: 999px; padding: 1px 8px">3</span></a>
+<a href="admin-calendar.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Calendar</a>
+<a href="admin-customers.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Customers</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SALES &amp; EXPENSES</p>
+<a href="admin-pos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Sales tracking</a>
+<a href="admin-expenses.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Expenses</a>
+<a href="admin-promos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Promos</a>
+<a href="admin-reports.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Reports</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SETUP</p>
+<a href="admin-services.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Services &amp; prices</a>
+<a href="admin-branches.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Branches &amp; hours</a>
+<a href="admin-staff.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Staff &amp; schedules</a>
+<a href="admin-settings.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Settings</a>
+</nav>
+<a href="index.html" style="margin-top: auto; display: flex; align-items: center; min-height: 42px; padding: 0 14px; font-weight: 600; color: #C8A96E">View website ↗</a>
+</aside>
+
+<main style="flex: 999 1 640px; min-width: 0; padding: 24px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center">
+<div>
+<p style="margin: 0; font-size: 13px; color: #665859">All branches · this week <span style="margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 6px; background: #F1E8EA">SAMPLE DATA</span></p>
+<h1 style="margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700">Bookings</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center"><button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 1.5px solid #D6246E; background: #FFFDFB; color: #D6246E; font-family: inherit; font-weight: 600; cursor: pointer">Export CSV</button><button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">+ New booking</button></div>
+</div>
+<div style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">Search<input type="search" placeholder="Client, phone or reference" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px; color: #2A2627; width: 240px"></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">Branch <select style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px; color: #2A2627"><option>All branches</option><option>Malaybalay — Poblacion</option><option>Malaybalay — Purok 4B</option><option>Valencia City</option><option>Maramag</option></select></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">From<input type="date" value="2026-10-19" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px; color: #2A2627"></label>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">To<input type="date" value="2026-10-25" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px; color: #2A2627"></label>
+</div>
+<div role="tablist" aria-label="Filter by status" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="6">
+<button type="button" role="tab" onClick="{{c.pick}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{c.label}} <span style="opacity: 0.75">{{c.n}}</span></button>
+</sc-for>
+</div>
+<section style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18); overflow: hidden">
+<div style="overflow-x: auto"><div style="min-width: 980px">
+<div style="display: grid; grid-template-columns: 110px 130px minmax(0, 1.3fr) minmax(0, 1.8fr) minmax(0, 1.2fr) 70px 90px 110px 80px 70px; gap: 10px; padding: 11px 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #665859; background: #FFF5F7"><span>REF</span><span>DATE &amp; TIME</span><span>CLIENT</span><span>SERVICE</span><span>BRANCH</span><span>STAFF</span><span>SOURCE</span><span>STATUS</span><span style="text-align: right">AMOUNT</span><span></span></div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<div style="display: grid; grid-template-columns: 110px 130px minmax(0, 1.3fr) minmax(0, 1.8fr) minmax(0, 1.2fr) 70px 90px 110px 80px 70px; gap: 10px; padding: 11px 20px; align-items: center; border-top: 1px solid #F8EDF0">
+<span style="font-size: 12px; color: #665859">{{r.ref}}</span>
+<span><strong>{{r.time}}</strong><span style="display: block; font-size: 12px; color: #665859">{{r.date}}</span></span>
+<span>{{r.client}}<span style="display: block; font-size: 12px; color: #665859">{{r.phone}}</span></span>
+<span>{{r.service}}</span>
+<span style="color: #665859">{{r.branch}}</span>
+<span>{{r.staff}}</span>
+<span style="color: #665859">{{r.src}}</span>
+<span style="justify-self: start; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: {{r.sbg}}; color: {{r.sfg}}">{{r.status}}</span>
+<strong style="text-align: right">{{r.amt}}</strong>
+<a href="#" style="justify-self: end; font-size: 13px; font-weight: 600">Open</a>
+</div>
+</sc-for>
+</div></div>
+</section>
+</main>
+</div>
+</template>
+
+<script src="js/joa.js"></script>
+<script>
+class Component extends JOA.Component {
+constructor(p) { super(p); this.state = { f: 'All' }; }
+renderVals() {
+  const S = { Pending: ['#FCEFD9', '#8A5100'], Confirmed: ['#E3EDF8', '#1D4F8C'], Completed: ['#F1E8EA', '#2A2627'], Cancelled: ['#F8EDF0', '#665859'], 'No-show': ['#FDE7EE', '#A8174F'] };
+  const R = [
+    ['BK-10482','10:30','Mon 19 Oct','Joy P.','0917 ··· 2231','Korean Signature Facial','Maramag','Grace','Website','Pending','₱749'],
+    ['BK-10481','13:00','Mon 19 Oct','Angel T.','0926 ··· 8810','Microshading','Valencia City','Mae','Website','Pending','₱999'],
+    ['BK-10480','14:00','Mon 19 Oct','Lovely R.','0935 ··· 1102','Botox Alartox','Maramag','[Doctor]','Website','Pending','₱1,999'],
+    ['BK-10479','10:00','Mon 19 Oct','Rhea M.','0918 ··· 4471','Protein Straight Bond — Long','Malaybalay Pob.','Ana','Messenger','Confirmed','₱3,999'],
+    ['BK-10478','09:00','Mon 19 Oct','Kristine D.','0927 ··· 5390','Classic Lash — Natural','Valencia City','Mae','Website','Completed','₱499'],
+    ['BK-10477','11:00','Mon 19 Oct','Carlo B.','0995 ··· 7713','Hair Cut / Blowdry / Iron','Purok 4B','Jun','Phone','Completed','₱199'],
+    ['BK-10476','15:30','Mon 19 Oct','Nica F.','0916 ··· 3058','Organic Hair Color','Malaybalay Pob.','Ana','Website','Confirmed','₱999'],
+    ['BK-10471','16:00','Sun 18 Oct','Mika S.','0939 ··· 6624','Gel Pedicure','Purok 4B','Liza','Website','No-show','₱549'],
+    ['BK-10466','13:30','Sun 18 Oct','Dianne C.','0920 ··· 1187','Hydrating Glow Facial','Maramag','Grace','Website','Cancelled','₱1,249'],
+    ['BK-10463','09:30','Tue 20 Oct','Paula G.','0947 ··· 9021','L’Oréal Rebond','Malaybalay Pob.','Ana','Website','Confirmed','₱1,749'],
+    ['BK-10460','14:30','Tue 20 Oct','Trish O.','0910 ··· 4462','Human Hair — Cat Eye','Valencia City','Mae','Messenger','Confirmed','₱1,499']
+  ];
+  const all = R.map((r) => ({ ref: r[0], time: r[1], date: r[2], client: r[3], phone: r[4], service: r[5], branch: r[6], staff: r[7], src: r[8], status: r[9], amt: r[10], sbg: S[r[9]][0], sfg: S[r[9]][1] }));
+  const rows = this.state.f === 'All' ? all : all.filter((r) => r.status === this.state.f);
+  const chips = ['All','Pending','Confirmed','Completed','Cancelled','No-show'].map((k) => { const on = this.state.f === k; return { label: k, n: k === 'All' ? all.length : all.filter((r) => r.status === k).length, border: on ? '#D6246E' : '#E6CBD5', bg: on ? '#D6246E' : '#FFFDFB', fg: on ? '#FFFFFF' : '#2A2627', pick: () => this.setState({ f: k }) }; });
+  return { rows, chips };
+}
+}
+
+JOA.mount(Component);
+</script>
+</body>
+</html>

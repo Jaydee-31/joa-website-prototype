@@ -1,0 +1,246 @@
+/* JOA Spa & Salon — prototype base styles
+   Page layouts use inline styles taken directly from the approved concept. */
+
+:root {
+  --joa-pink: #D6246E;
+  --joa-pink-dark: #A8174F;
+  --joa-blush: #FDE7EE;
+  --joa-ivory: #FFF8F4;
+  --joa-ink: #2A2627;
+  --joa-muted: #665859;
+  --joa-gold: #C8A96E;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--joa-ivory);
+  color: var(--joa-ink);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--joa-pink); }
+a:hover { color: var(--joa-pink-dark); }
+
+img { max-width: 100%; }
+button { -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: not-allowed !important; }
+
+:focus-visible {
+  outline: 3px solid var(--joa-gold);
+  outline-offset: 2px;
+}
+
+/* Mobile home preview: frame it like a phone on wide screens */
+body.mobile-preview { background: #EFE3E6; }
+@media (min-width: 520px) {
+  body.mobile-preview #app { padding: 32px 0; }
+  body.mobile-preview #app > div {
+    border-radius: 28px;
+    box-shadow: 0 30px 80px -30px rgba(42, 38, 39, .45);
+  }
+}
+
+/* Screens index */
+.screens { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+.screens header { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.screens h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 40px; margin: 8px 0 0; }
+.screens h2 { font-size: 13px; letter-spacing: .18em; color: var(--joa-pink); margin: 40px 0 14px; }
+.screens p.lead { color: var(--joa-muted); margin: 6px 0 0; max-width: 40em; }
+.screens ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.screens li a {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 16px 18px; min-height: 44px;
+  background: #FFFDFB; border: 1px solid #F5D3DF; border-radius: 16px;
+  color: var(--joa-ink); text-decoration: none; font-weight: 600;
+  transition: border-color .15s, transform .15s;
+}
+.screens li a:hover { border-color: var(--joa-pink); transform: translateY(-1px); }
+.screens li a span { font-weight: 400; font-size: 13px; color: var(--joa-muted); }
+
+/* Admin layout: sidebar column on desktop; sticky top bar + slide-in drawer on narrow screens.
+   872px = 232px sidebar + 640px content. Range syntax leaves no gap at fractional widths, and the
+   desktop row never wraps, so a classic scrollbar eating ~17px can't push content under the sidebar. */
+.admin-layout { flex-wrap: wrap; }
+@media (width >= 872px) { .admin-layout { flex-wrap: nowrap; } }
+
+.admin-sidebar {
+  flex: 1 1 232px; max-width: 100%;
+  position: sticky; top: 0; z-index: 20;
+  align-self: flex-start; height: 100vh; height: 100dvh; overflow-y: auto;
+  background: var(--joa-ink); border-right: 1px solid var(--joa-ink);
+  padding: 20px 16px; box-sizing: border-box;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.admin-sidebar__bar { display: flex; align-items: center; gap: 12px; }
+.admin-sidebar__logo { height: 52px; width: auto; display: block; }
+.admin-sidebar__menu-btn,
+.admin-sidebar__drawer-head,
+.admin-sidebar__scrim { display: none; }
+.admin-sidebar__panel { flex: 1; display: flex; flex-direction: column; gap: 18px; }
+
+.admin-nav { display: flex; flex-direction: column; gap: 2px; font-weight: 600; }
+.admin-nav__section { margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA; }
+.admin-sidebar a.admin-nav__link {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  min-height: 42px; padding: 0 14px; border-radius: 10px;
+  color: #E9E1DA; text-decoration: none;
+}
+.admin-sidebar a.admin-nav__link:hover { background: rgba(255, 255, 255, .06); }
+.admin-sidebar a.admin-nav__link.active {
+  background: var(--joa-pink); color: #FFFFFF;
+  box-shadow: 0 10px 22px -10px rgba(214, 36, 110, 0.65);
+}
+.admin-nav__badge { font-size: 11px; background: var(--joa-pink); color: #FFFFFF; border-radius: 999px; padding: 1px 8px; }
+.admin-sidebar a.admin-sidebar__site-link {
+  margin-top: auto; display: flex; align-items: center; min-height: 42px; padding: 0 14px;
+  font-weight: 600; color: var(--joa-gold);
+}
+
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; padding: 0; border-radius: 10px;
+  border: 1.5px solid rgba(233, 225, 218, .35); background: transparent;
+  color: #E9E1DA; cursor: pointer;
+}
+
+@media (width < 872px) {
+  /* keep focused controls and anchor targets clear of the sticky bar */
+  html { scroll-padding-top: 76px; }
+
+  .admin-sidebar {
+    flex-basis: 100%; height: auto; overflow: visible;
+    padding: 10px 16px; gap: 0; border-right: 0;
+  }
+  .admin-sidebar__logo { height: 40px; }
+  .admin-sidebar__menu-btn { display: inline-flex; }
+
+  .admin-sidebar__panel {
+    position: fixed; z-index: 2; top: 0; bottom: 0; left: 0;
+    width: min(300px, 86vw); box-sizing: border-box;
+    padding: 10px 16px 20px; gap: 14px;
+    background: var(--joa-ink);
+    box-shadow: 24px 0 48px -24px rgba(0, 0, 0, .6);
+    overflow-y: auto; overscroll-behavior: contain;
+    transform: translateX(-100%); visibility: hidden;
+    transition: transform .28s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .28s;
+  }
+  .admin-sidebar.is-open .admin-sidebar__panel {
+    transform: none; visibility: visible;
+    transition: transform .28s cubic-bezier(.2, .7, .2, 1);
+  }
+  .admin-sidebar__drawer-head { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+
+  .admin-sidebar__scrim {
+    display: block; position: fixed; inset: 0; z-index: 1;
+    background: rgba(42, 38, 39, .5);
+    opacity: 0; visibility: hidden;
+    transition: opacity .28s ease, visibility 0s linear .28s;
+  }
+  .admin-sidebar.is-open .admin-sidebar__scrim { opacity: 1; visibility: visible; transition: opacity .28s ease; }
+
+  /* The topbar's account menu (AdminTopbar) moves up into the right of the sticky bar.
+     Its 44px button + 10px offset matches the bar's padding; hidden while the drawer is open. */
+  .admin-layout .admin-topbar { z-index: auto; } /* a z-indexed flex item would trap the menu below the bar */
+  .admin-topbar .admin-user { position: fixed; top: 10px; right: 16px; z-index: 21; margin: 0; }
+  .admin-layout:has(.admin-sidebar.is-open) .admin-topbar .admin-user { visibility: hidden; }
+  .admin-topbar .admin-user__btn { background: transparent; border-color: rgba(233, 225, 218, .35); color: #E9E1DA; }
+  .admin-topbar .admin-user__btn:hover,
+  .admin-topbar .admin-user__btn[aria-expanded='true'] { border-color: #E9E1DA; }
+  .admin-topbar .admin-user__who span { color: #B9AEAA; }
+}
+@media (width < 872px) and (prefers-reduced-motion: reduce) {
+  .admin-sidebar__panel, .admin-sidebar.is-open .admin-sidebar__panel,
+  .admin-sidebar__scrim, .admin-sidebar.is-open .admin-sidebar__scrim { transition: none; }
+}
+
+/* Filter chips: bleed into the 32px page gutter so chips scroll edge to edge */
+.chip-row {
+  display: flex; gap: 8px;
+  margin: -6px -32px; padding: 6px 32px; max-width: none; scroll-padding-inline: 32px;
+}
+
+/* Tablists: always one swipeable row instead of wrapping.
+   Tabs sit flush with the scroll edge, so pull the focus ring inside to avoid clipping. */
+[role='tablist'] {
+  flex-wrap: nowrap !important; overflow-x: auto; overscroll-behavior-x: contain;
+  min-width: 0; max-width: 100%; box-sizing: border-box; scrollbar-width: none;
+}
+[role='tablist']::-webkit-scrollbar { display: none; }
+[role='tablist'] > * { flex-shrink: 0; white-space: nowrap; }
+[role='tablist'] > :focus-visible { outline-offset: -3px; }
+[role='tablist'].chip-row { max-width: none; }
+
+/* Admin topbar: breadcrumb + user menu. Bleeds into main's 24px/32px padding and
+   sticks to the top on desktop; on narrow screens the sidebar bar is already sticky. */
+.admin-topbar {
+  position: sticky; top: 0; z-index: 10;
+  margin: -24px -32px -4px; padding: 10px 32px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+  background: rgba(255, 248, 244, .92); backdrop-filter: blur(8px);
+  border-bottom: 1px solid #EFE1E4;
+}
+.admin-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--joa-muted); }
+.admin-crumbs li + li::before { content: '›'; margin-right: 6px; color: #B9AEAA; }
+.admin-crumbs a { color: var(--joa-muted); text-decoration: none; }
+.admin-crumbs a:hover { color: var(--joa-pink); text-decoration: underline; }
+.admin-crumbs [aria-current='page'] { color: var(--joa-ink); font-weight: 600; }
+
+.admin-user { position: relative; margin-left: auto; }
+.admin-user__btn {
+  display: flex; align-items: center; gap: 10px;
+  min-height: 44px; padding: 4px 10px 4px 4px; border-radius: 999px;
+  border: 1.5px solid #E6CBD5; background: #FFFDFB;
+  color: var(--joa-ink); font: inherit; font-size: 13px; text-align: left; cursor: pointer;
+}
+.admin-user__btn:hover, .admin-user__btn[aria-expanded='true'] { border-color: var(--joa-pink); }
+.admin-user__avatar {
+  width: 34px; height: 34px; border-radius: 999px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--joa-pink); color: #FFFFFF; font-weight: 700; font-size: 13px;
+}
+.admin-user__who { display: flex; flex-direction: column; line-height: 1.25; }
+.admin-user__who span { font-size: 12px; color: var(--joa-muted); }
+.admin-user__menu {
+  position: absolute; top: calc(100% + 8px); right: 0; min-width: 220px;
+  display: flex; flex-direction: column; padding: 6px;
+  background: #FFFDFB; border: 1px solid #EFE1E4; border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(42, 38, 39, .05), 0 18px 40px -16px rgba(42, 38, 39, .35);
+}
+.admin-user__menu[hidden] { display: none; }
+.admin-user__email { margin: 0 0 4px; padding: 8px 12px 10px; font-size: 12px; color: var(--joa-muted); border-bottom: 1px solid #F8EDF0; overflow-wrap: anywhere; }
+.admin-user__menu button {
+  min-height: 42px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent;
+  color: var(--joa-ink); font: inherit; font-size: 14px; font-weight: 600; text-align: left; cursor: pointer;
+}
+.admin-user__menu button:hover { background: #FFF4F6; }
+.admin-user__menu .admin-user__logout { color: var(--joa-pink-dark); }
+
+.admin-dialog {
+  width: min(420px, calc(100vw - 32px)); box-sizing: border-box; padding: 22px;
+  border: 1px solid #EFE1E4; border-radius: 16px; background: #FFFDFB; color: var(--joa-ink);
+  box-shadow: 0 30px 80px -30px rgba(42, 38, 39, .45);
+}
+.admin-dialog::backdrop { background: rgba(42, 38, 39, .45); }
+.admin-dialog form { display: flex; flex-direction: column; gap: 14px; }
+.admin-dialog h2 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 22px; }
+.admin-dialog label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
+.admin-dialog input {
+  min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5;
+  background: #FFFDFB; font: inherit; font-size: 14px; font-weight: 400;
+}
+.admin-dialog__actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 4px; }
+.admin-btn {
+  min-height: 42px; padding: 0 16px; border-radius: 10px; border: 1.5px solid #E6CBD5;
+  background: #FFFDFB; color: var(--joa-ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.admin-btn--primary { background: var(--joa-pink); border-color: var(--joa-pink); color: #FFFFFF; }
+.admin-btn--primary:hover { background: var(--joa-pink-dark); border-color: var(--joa-pink-dark); }
+
+@media (width < 872px) {
+  .admin-topbar { position: static; background: transparent; backdrop-filter: none; }
+}
+@media (width <= 520px) {
+  .admin-user__who { display: none; }
+}

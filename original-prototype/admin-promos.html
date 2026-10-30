@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOA Admin — Promos</title>
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div id="app"></div>
+
+<template id="view">
+<div style="font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #2A2627; background: #FFF8F4; font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 232px; max-width: 100%; background: #2A2627; border-right: 1px solid #2A2627; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<img src="images/logo-light.png" alt="JOA Spa &amp; Salon" style="height: 52px; width: auto; align-self: flex-start">
+<nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 2px; font-weight: 600">
+<a href="admin-dashboard.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Dashboard</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">FRONT DESK</p>
+<a href="admin-bookings.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Bookings<span style="font-size: 11px; background: #D6246E; color: #FFFFFF; border-radius: 999px; padding: 1px 8px">3</span></a>
+<a href="admin-calendar.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Calendar</a>
+<a href="admin-customers.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Customers</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SALES &amp; EXPENSES</p>
+<a href="admin-pos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Sales tracking</a>
+<a href="admin-expenses.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Expenses</a>
+<a href="admin-promos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; background: #D6246E; color: #FFFFFF; text-decoration: none; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Promos</a>
+<a href="admin-reports.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Reports</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SETUP</p>
+<a href="admin-services.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Services &amp; prices</a>
+<a href="admin-branches.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Branches &amp; hours</a>
+<a href="admin-staff.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Staff &amp; schedules</a>
+<a href="admin-settings.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Settings</a>
+</nav>
+<a href="index.html" style="margin-top: auto; display: flex; align-items: center; min-height: 42px; padding: 0 14px; font-weight: 600; color: #C8A96E">View website ↗</a>
+</aside>
+
+<main style="flex: 999 1 640px; min-width: 0; padding: 24px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center">
+<div>
+<p style="margin: 0; font-size: 13px; color: #665859">Discounts, banners and limited offers <span style="margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 6px; background: #F1E8EA">SAMPLE DATA</span></p>
+<h1 style="margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700">Promos</h1>
+</div>
+<button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">+ New promo</button>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section aria-label="Promo list" style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 12px">
+<a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 14px; background: #FFFDFB; border: 2px solid #D6246E; text-decoration: none; color: #2A2627; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; justify-content: space-between; gap: 8px"><strong>50% OFF All Services</strong><span style="font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: #E3EDF8; color: #1D4F8C">LIVE</span></div>
+<span style="font-size: 13px; color: #665859">All categories · 4 branches · until [end date]</span>
+<span style="font-size: 12px; color: #665859">Used in 112 bookings</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 14px; background: #FFFDFB; border: 1px solid #EFE1E4; text-decoration: none; color: #2A2627; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; justify-content: space-between; gap: 8px"><strong>Nails Salon — Limited Offer</strong><span style="font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: #E3EDF8; color: #1D4F8C">LIVE</span></div>
+<span style="font-size: 13px; color: #665859">Gel and extensions only · 4 branches</span>
+<span style="font-size: 12px; color: #665859">Used in 38 bookings</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 14px; background: #FFFDFB; border: 1px solid #EFE1E4; text-decoration: none; color: #2A2627; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; justify-content: space-between; gap: 8px"><strong>Protein Straight Bond Promo</strong><span style="font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: #FCEFD9; color: #8A5100">SCHEDULED</span></div>
+<span style="font-size: 13px; color: #665859">Fixed prices by hair length · starts [date]</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border-radius: 14px; background: #FFFDFB; border: 1px solid #EFE1E4; text-decoration: none; color: #2A2627; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; justify-content: space-between; gap: 8px"><strong>We Are Open</strong><span style="font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: #F1E8EA; color: #2A2627">ENDED</span></div>
+<span style="font-size: 13px; color: #665859">Announcement banner only · no discount</span>
+</a>
+</section>
+
+<section aria-label="Edit promo" style="flex: 999 1 520px; min-width: 0; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; overflow: hidden; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; padding: 16px 22px; border-bottom: 1px solid #EFE1E4">
+<h2 style="margin: 0; font-size: 17px">Edit · 50% OFF All Services</h2>
+<div style="display: flex; gap: 8px"><button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-weight: 600; cursor: pointer">Pause</button><button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Save changes</button></div>
+</div>
+<div style="padding: 22px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700">Promo name<input type="text" value="50% OFF All Services" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit; font-size: 14px"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700">Badge text on website<input type="text" value="Limited time offer" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit; font-size: 14px"></label>
+</div>
+
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 12px; font-weight: 700; margin-bottom: 8px">Discount</legend>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<div style="display: flex; border: 1.5px solid #E6CBD5; border-radius: 10px; overflow: hidden; font-size: 13px; font-weight: 600"><span style="padding: 10px 14px; background: #D6246E; color: #FFFFFF">% off</span><span style="padding: 10px 14px">₱ off</span><span style="padding: 10px 14px">Fixed price</span></div>
+<label style="display: flex; align-items: center; gap: 6px; font-size: 13px">Value<input type="text" value="50" style="width: 64px; min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit; font-size: 14px">%</label>
+<label style="display: flex; align-items: center; gap: 6px; font-size: 13px">Rounding<select style="min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 13px"><option>Round down to ₱…9</option><option>No rounding</option></select></label>
+</div>
+<p style="margin: 0; font-size: 12px; color: #665859">Example: Hair Cut ₱399 → ₱199 · Balayage ₱4,999 → ₱2,499. A fixed promo price set on a service always wins.</p>
+</fieldset>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px">
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 4px">
+<legend style="font-size: 12px; font-weight: 700; margin-bottom: 6px">Applies to</legend>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Hair (21)</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Lashes &amp; Brows (19)</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Nails (8)</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Facial &amp; Skin (15)</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Aesthetics (20)</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Fillers &amp; PRP (8)</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Spa &amp; Wellness (7)</label>
+</fieldset>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 4px">
+<legend style="font-size: 12px; font-weight: 700; margin-bottom: 6px">Branches</legend>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Malaybalay — Poblacion</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Malaybalay — Purok 4B</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Valencia City</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Maramag</label>
+</fieldset>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700">Starts<input type="date" value="2026-10-01" style="min-height: 40px; padding: 0 8px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700">Ends<input type="date" style="min-height: 40px; padding: 0 8px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit"></label>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700">Excluded services <span style="font-weight: 500; color: #665859">— keep regular price</span></span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #F8EDF0">Classic Manicure ✕</span>
+<span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #F8EDF0">Classic Pedicure ✕</span>
+<span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #F8EDF0">Simple Design ✕</span>
+<span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #F8EDF0">Nail Removal ✕</span>
+<span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: #F8EDF0">Nail Extension Removal ✕</span>
+<button type="button" style="font-size: 13px; min-height: 32px; padding: 0 12px; border-radius: 999px; border: 1.5px dashed #C9B6B2; background: #FFFDFB; font-family: inherit; cursor: pointer">+ Add</button>
+</div>
+</div>
+
+<fieldset style="margin: 0; padding: 16px; border: 1px solid #EFE1E4; border-radius: 12px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center">
+<legend style="font-size: 12px; font-weight: 700; padding: 0 6px">Show on website</legend>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Top announcement bar</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Homepage “50% OFF” badge</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 18px; height: 18px">Strike-through prices</label>
+<label style="display: flex; gap: 8px; align-items: center; min-height: 32px"><input type="checkbox" style="accent-color: #D6246E; width: 18px; height: 18px">Post to Facebook page</label>
+</fieldset>
+
+<div style="border-radius: 12px; overflow: hidden; border: 1px solid #EFE1E4">
+<p style="margin: 0; padding: 8px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #665859; background: #FFF5F7">LIVE PREVIEW</p>
+<div style="background: #D6246E; color: #FFFFFF; text-align: center; padding: 9px; font-size: 13px; font-weight: 600">50% OFF ALL SERVICES · Limited time offer · Book now →</div>
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; background: #FFF8F4"><span style="font-weight: 600">Hair Cut / Blowdry / Iron</span><span><s style="color: #665859; font-size: 13px">₱399</s> <strong style="color: #D6246E; font-size: 18px">₱199</strong></span></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</template>
+
+<script src="js/joa.js"></script>
+<script>
+class Component extends JOA.Component {
+renderVals() {
+return {};
+}
+}
+
+JOA.mount(Component);
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+/* JOA Spa & Salon — prototype base styles
+   Page layouts use inline styles taken directly from the approved concept. */
+
+:root {
+  --joa-pink: #D6246E;
+  --joa-pink-dark: #A8174F;
+  --joa-blush: #FDE7EE;
+  --joa-ivory: #FFF8F4;
+  --joa-ink: #2A2627;
+  --joa-muted: #665859;
+  --joa-gold: #C8A96E;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--joa-ivory);
+  color: var(--joa-ink);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--joa-pink); }
+a:hover { color: var(--joa-pink-dark); }
+
+img { max-width: 100%; }
+button { -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: not-allowed !important; }
+
+:focus-visible {
+  outline: 3px solid var(--joa-gold);
+  outline-offset: 2px;
+}
+
+/* Mobile home preview: frame it like a phone on wide screens */
+body.mobile-preview { background: #EFE3E6; }
+@media (min-width: 520px) {
+  body.mobile-preview #app { padding: 32px 0; }
+  body.mobile-preview #app > div {
+    border-radius: 28px;
+    box-shadow: 0 30px 80px -30px rgba(42, 38, 39, .45);
+  }
+}
+
+/* Screens index */
+.screens { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+.screens header { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.screens h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 40px; margin: 8px 0 0; }
+.screens h2 { font-size: 13px; letter-spacing: .18em; color: var(--joa-pink); margin: 40px 0 14px; }
+.screens p.lead { color: var(--joa-muted); margin: 6px 0 0; max-width: 40em; }
+.screens ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.screens li a {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 16px 18px; min-height: 44px;
+  background: #FFFDFB; border: 1px solid #F5D3DF; border-radius: 16px;
+  color: var(--joa-ink); text-decoration: none; font-weight: 600;
+  transition: border-color .15s, transform .15s;
+}
+.screens li a:hover { border-color: var(--joa-pink); transform: translateY(-1px); }
+.screens li a span { font-weight: 400; font-size: 13px; color: var(--joa-muted); }

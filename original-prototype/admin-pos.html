@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOA Admin — Sales tracking</title>
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div id="app"></div>
+
+<template id="view">
+<div style="font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #2A2627; background: #FFF8F4; font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 232px; max-width: 100%; background: #2A2627; border-right: 1px solid #2A2627; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<img src="images/logo-light.png" alt="JOA Spa &amp; Salon" style="height: 52px; width: auto; align-self: flex-start">
+<nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 2px; font-weight: 600">
+<a href="admin-dashboard.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Dashboard</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">FRONT DESK</p>
+<a href="admin-bookings.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Bookings<span style="font-size: 11px; background: #D6246E; color: #FFFFFF; border-radius: 999px; padding: 1px 8px">3</span></a>
+<a href="admin-calendar.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Calendar</a>
+<a href="admin-customers.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Customers</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SALES &amp; EXPENSES</p>
+<a href="admin-pos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; background: #D6246E; color: #FFFFFF; text-decoration: none; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Sales tracking</a>
+<a href="admin-expenses.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Expenses</a>
+<a href="admin-promos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Promos</a>
+<a href="admin-reports.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Reports</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SETUP</p>
+<a href="admin-services.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Services &amp; prices</a>
+<a href="admin-branches.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Branches &amp; hours</a>
+<a href="admin-staff.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Staff &amp; schedules</a>
+<a href="admin-settings.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Settings</a>
+</nav>
+<a href="index.html" style="margin-top: auto; display: flex; align-items: center; min-height: 42px; padding: 0 14px; font-weight: 600; color: #C8A96E">View website ↗</a>
+</aside>
+
+<main style="flex: 999 1 640px; min-width: 0; padding: 24px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center">
+<div>
+<p style="margin: 0; font-size: 13px; color: #665859">Monday, 19 October 2026 · Malaybalay — Poblacion <span style="margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 6px; background: #F1E8EA">SAMPLE DATA</span></p>
+<h1 style="margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700">Sales tracking</h1>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">Branch
+<select style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 14px"><option>Malaybalay — Poblacion</option><option>Malaybalay — Purok 4B</option><option>Valencia City</option><option>Maramag</option><option>All branches</option></select></label>
+<div role="tablist" aria-label="POS views" style="display: flex; padding: 4px; border-radius: 12px; background: #F8EDF0; gap: 4px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="2">
+<button type="button" role="tab" onClick="{{t.pick}}" style="min-height: 38px; padding: 0 18px; border-radius: 9px; border: 0; background: {{t.bg}}; color: {{t.fg}}; box-shadow: {{t.shadow}}; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+</div>
+
+<sc-if value="{{isReg}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+
+<section aria-label="Catalog" style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<h2 style="margin: 0; font-size: 14px">Check out a booking</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{bookings}}" as="b" hint-placeholder-count="4">
+<button type="button" onClick="{{b.pick}}" style="min-height: 44px; padding: 6px 14px; border-radius: 10px; border: 1.5px solid #F5D3DF; background: #FFF4F6; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer; color: #2A2627"><strong>{{b.time}} · {{b.client}}</strong><span style="display: block; font-size: 12px; color: #665859">{{b.service}}</span></button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+<button type="button" onClick="{{c.pick}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #D6246E; background: {{c.bg}}; color: {{c.fg}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{c.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px">
+<sc-for list="{{tiles}}" as="s" hint-placeholder-count="6">
+<button type="button" onClick="{{s.add}}" style="min-height: 112px; padding: 14px 16px; border-radius: 14px; border: 1px solid #EFE1E4; background: #FFFDFB; font-family: inherit; text-align: left; color: #2A2627; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 8px 20px -12px rgba(214,36,110,0.30)">
+<span style="font-size: 14px; font-weight: 600; line-height: 1.3">{{s.name}}</span>
+<span><s style="font-size: 12px; color: #665859">{{s.reg}}</s> <strong style="font-size: 17px; color: #D6246E">{{s.promo}}</strong></span>
+</button>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Current sale" style="flex: 1 1 360px; background: #FFFDFB; border-radius: 18px; border: 1px solid #EFE1E4; overflow: hidden; box-shadow: 0 2px 4px rgba(42,38,39,0.05), 0 24px 48px -20px rgba(42,38,39,0.28)">
+<div style="background: #2A2627; color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 10px">
+<div><p style="margin: 0; font-size: 11px; letter-spacing: 0.12em; color: #C8A96E; font-weight: 700">CURRENT SALE</p><p style="margin: 0; font-weight: 600">{{customer}}</p></div>
+<button type="button" onClick="{{clear}}" style="min-height: 40px; padding: 0 14px; border-radius: 8px; border: 1px solid #5A5354; background: transparent; color: #E9E1DA; font-family: inherit; font-weight: 600; cursor: pointer">Clear</button>
+</div>
+
+<sc-if value="{{showTicket}}" hint-placeholder-val="{{ true }}">
+<div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<label style="display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; font-weight: 600">Staff
+<select style="min-height: 40px; padding: 0 10px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-size: 13px"><option>Ana</option><option>Liza</option><option>Mae</option><option>Grace</option><option>Jun</option></select></label>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; padding: 28px 0; text-align: center; color: #665859; font-size: 14px">Tap a service or a booking to start a sale.</p>
+</sc-if>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #F8E6EC">
+<div style="flex-grow: 1; min-width: 0"><div style="font-weight: 600; font-size: 14px">{{l.name}}</div><div style="font-size: 12px; color: #665859">{{l.unit}} each</div></div>
+<div style="display: flex; align-items: center; gap: 4px">
+<button type="button" aria-label="Decrease quantity" onClick="{{l.dec}}" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #E6CBD5; background: #FFFDFB; font-family: inherit; cursor: pointer">−</button>
+<span style="width: 22px; text-align: center; font-weight: 700">{{l.qty}}</span>
+<button type="button" aria-label="Increase quantity" onClick="{{l.inc}}" style="width: 32px; height: 32px; border-radius: 8px; border: 1px solid #E6CBD5; background: #FFFDFB; font-family: inherit; cursor: pointer">+</button>
+</div>
+<strong style="width: 72px; text-align: right">{{l.total}}</strong>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px">
+<div style="display: flex; justify-content: space-between"><span style="color: #665859">Regular price</span><span style="color: #665859">{{t.reg}}</span></div>
+<div style="display: flex; justify-content: space-between"><span style="color: #665859">50% OFF All Services</span><span style="color: #A8174F; font-weight: 600">{{t.disc}}</span></div>
+<div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px"><span style="font-weight: 700">Total</span><span style="font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700">{{t.total}}</span></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{pays}}" as="p" hint-placeholder-count="4">
+<button type="button" onClick="{{p.pick}}" style="min-height: 44px; border-radius: 10px; border: 1.5px solid {{p.border}}; background: {{p.bg}}; color: {{p.fg}}; font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer">{{p.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{isCash}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{tenders}}" as="x" hint-placeholder-count="4">
+<button type="button" onClick="{{x.pick}}" style="flex: 1; min-height: 40px; border-radius: 10px; border: 1.5px solid {{x.border}}; background: {{x.bg}}; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; color: #2A2627">{{x.label}}</button>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 14px; padding: 10px 12px; border-radius: 10px; background: #FFF4F6"><span>Change due</span><strong>{{t.change}}</strong></div>
+</div>
+</sc-if>
+<sc-if value="{{isRef}}" hint-placeholder-val="{{ false }}">
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700">Reference no.<input type="text" placeholder="e.g. GCash ref 1029 384 5561" style="min-height: 42px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit; font-size: 14px"></label>
+</sc-if>
+<button type="button" onClick="{{charge}}" disabled="{{empty}}" style="min-height: 56px; border-radius: 12px; border: 0; background: {{chargeBg}}; color: #FFFFFF; font-family: inherit; font-size: 17px; font-weight: 700; cursor: pointer; box-shadow: 0 12px 24px -10px rgba(214,36,110,0.7)">Charge {{t.total}}</button>
+</div>
+</sc-if>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 28px 22px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+<div style="width: 64px; height: 64px; border-radius: 999px; background: #FDE7EE; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px -10px rgba(214,36,110,0.5)"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D6246E" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></div>
+<h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 26px">Paid {{t.total}}</h2>
+<p style="margin: 0; color: #665859; font-size: 14px">{{payLabel}} · Receipt JOA-MP-000231 · Customer saved {{t.discAbs}}</p>
+<div style="display: flex; gap: 8px; margin-top: 8px; width: 100%">
+<button type="button" style="flex: 1; min-height: 46px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-weight: 600; cursor: pointer">Print receipt</button>
+<button type="button" onClick="{{clear}}" style="flex: 1; min-height: 46px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 700; cursor: pointer">New sale</button>
+</div>
+</div>
+</sc-if>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{isHist}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: #FFFDFB; border-radius: 16px; padding: 18px 20px; border: 1px solid #EFE1E4; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)"><p style="margin: 0; font-size: 12px; font-weight: 600; color: #665859">{{k.label}}</p><p style="margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700">{{k.value}}</p><p style="margin: 0; font-size: 12px; color: #665859">{{k.note}}</p></div>
+</sc-for>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<section style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; padding: 18px 20px; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px"><h2 style="margin: 0; font-size: 16px">Sales, last 7 days</h2><span style="font-size: 12px; color: #665859">All branches</span></div>
+<div style="display: flex; align-items: flex-end; gap: 14px; height: 200px; margin-top: 16px">
+<sc-for list="{{week}}" as="w" hint-placeholder-count="7">
+<div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%">
+<span style="font-size: 11px; font-weight: 600; color: #665859">{{w.amt}}</span>
+<div style="width: 100%; max-width: 56px; border-radius: 8px 8px 3px 3px; background: {{w.bg}}; height: {{w.h}}; box-shadow: 0 8px 16px -10px rgba(214,36,110,0.6)"></div>
+<span style="font-size: 12px; font-weight: 700">{{w.day}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; overflow: hidden; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid #EFE1E4">
+<h2 style="margin: 0; font-size: 16px">Transactions today</h2>
+<button type="button" style="min-height: 38px; padding: 0 14px; border-radius: 10px; border: 1.5px solid #E6CBD5; background: #FFFDFB; font-family: inherit; font-weight: 600; cursor: pointer">Export CSV</button>
+</div>
+<div style="overflow-x: auto"><div style="min-width: 760px">
+<div style="display: grid; grid-template-columns: 120px 60px minmax(0, 1fr) minmax(0, 1.8fr) 70px 80px 90px 90px; gap: 10px; padding: 10px 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #665859; background: #FFF5F7"><span>RECEIPT</span><span>TIME</span><span>CLIENT</span><span>ITEMS</span><span>STAFF</span><span>PAYMENT</span><span style="text-align: right">AMOUNT</span><span>STATUS</span></div>
+<sc-for list="{{tx}}" as="r" hint-placeholder-count="7">
+<div style="display: grid; grid-template-columns: 120px 60px minmax(0, 1fr) minmax(0, 1.8fr) 70px 80px 90px 90px; gap: 10px; padding: 11px 20px; align-items: center; border-top: 1px solid #F8EDF0">
+<span style="font-size: 12px; color: #665859">{{r.no}}</span><strong>{{r.time}}</strong><span>{{r.client}}</span><span>{{r.items}}</span><span>{{r.staff}}</span><span>{{r.pay}}</span><strong style="text-align: right; text-decoration: {{r.deco}}">{{r.amt}}</strong>
+<span style="justify-self: start; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: {{r.sbg}}; color: {{r.sfg}}">{{r.status}}</span>
+</div>
+</sc-for>
+</div></div>
+</section>
+</div>
+
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 20px">
+<section style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<h2 style="margin: 0; font-size: 16px">Payment methods</h2>
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{m.name}}</span><strong>{{m.amt}}</strong></div><div style="height: 8px; border-radius: 999px; background: #F8EDF0"><div style="height: 8px; border-radius: 999px; background: #D6246E; width: {{m.w}}"></div></div></div>
+</sc-for>
+</section>
+<section style="background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<h2 style="margin: 0; font-size: 16px">Top services today</h2>
+<sc-for list="{{top}}" as="s" hint-placeholder-count="5">
+<div style="display: flex; justify-content: space-between; gap: 10px; font-size: 13px; padding: 4px 0; border-bottom: 1px solid #F8EDF0"><span>{{s.name}}</span><span style="color: #665859">{{s.n}} · <strong style="color: #2A2627">{{s.amt}}</strong></span></div>
+</sc-for>
+</section>
+<section style="background: #2A2627; color: #FFFFFF; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 18px 36px -18px rgba(42,38,39,0.6)">
+<h2 style="margin: 0; font-size: 16px">Cash drawer</h2>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #E9E1DA"><span>Opening float</span><span>₱2,000</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: #E9E1DA"><span>Cash sales</span><span>₱9,690</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 700"><span>Expected in drawer</span><span style="color: #F7B4CD">₱11,690</span></div>
+<button type="button" style="margin-top: 6px; min-height: 44px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 700; cursor: pointer">Close day &amp; count cash</button>
+</section>
+</div>
+</div>
+</div>
+</sc-if>
+</main>
+</div>
+</template>
+
+<script src="js/joa.js"></script>
+<script>
+class Component extends JOA.Component {
+  constructor(p) { super(p); this.state = { tab: 'reg', cat: 0, cart: [], cust: 'Walk-in customer', pay: 'Cash', tender: 0, done: false }; }
+  renderVals() {
+    const st = this.state;
+    const peso = (n) => (n < 0 ? '−' : '') + '₱' + Math.abs(n).toLocaleString('en-US');
+    const C = [
+      ['Hair', [['Hair Cut / Blowdry / Iron',399,199],['Wash / Blowdry / Iron',499,249],['Organic Hair Color',1999,999],['L’Oréal Rebond',3499,1749],['iCure Keratin Blowout',2499,1249],['Protein Straight Bond — Long',7999,3999]]],
+      ['Lashes & Brows', [['Classic Lash — Natural',999,499],['Human Hair — Cat Eye',2999,1499],['Lash Lift with Tint',1999,999],['Brow Lamination',999,499],['Microshading',1999,999],['Microblading',3500,1750]]],
+      ['Nails', [['Classic Manicure',150,150],['Classic Pedicure',200,200],['Gel Manicure',649,499],['Gel Pedicure',699,549],['Simple Design (per piece)',200,200],['Nail Extension (Plain)',1499,749]]],
+      ['Facial & Skin', [['Korean Signature Facial',1499,749],['Bb Glow Glass Skin Facial',1499,749],['Hydrating Glow Facial',2499,1249],['Diode Laser Underarm',1599,799]]],
+      ['Aesthetics', [['Botox Alartox',3999,1999],['Micro Tox Anti-Aging',4999,2499],['Dermal Filler',13999,6999]]],
+      ['Wellness', [['White Glow Therapy',1499,749],['K-Beauty Glow',3999,1999]]]
+    ];
+    const ALL = {}; C.forEach((c) => c[1].forEach((s) => { ALL[s[0]] = s; }));
+    const add = (name, cust) => { const cart = st.cart.slice(); const f = cart.find((x) => x.k === name); if (f) f.qty++; else cart.push({ k: name, qty: 1 }); this.setState(cust ? { cart, cust, done: false, tab: 'reg' } : { cart, done: false }); };
+    const setQty = (name, d) => { const cart = st.cart.map((x) => x.k === name ? { k: x.k, qty: x.qty + d } : x).filter((x) => x.qty > 0); this.setState({ cart }); };
+    const tabs = [['reg','Register'],['hist','Sales history']].map((t) => { const on = st.tab === t[0]; return { label: t[1], bg: on ? '#FFFDFB' : 'transparent', fg: on ? '#D6246E' : '#665859', shadow: on ? '0 4px 12px -4px rgba(42,38,39,0.2)' : 'none', pick: () => this.setState({ tab: t[0] }) }; });
+    const cats = C.map((c, i) => ({ label: c[0], bg: i === st.cat ? '#D6246E' : '#FFFDFB', fg: i === st.cat ? '#FFFFFF' : '#D6246E', pick: () => this.setState({ cat: i }) }));
+    const tiles = C[st.cat][1].map((s) => ({ name: s[0], reg: s[2] < s[1] ? peso(s[1]) : '', promo: peso(s[2]), add: () => add(s[0]) }));
+    const bookings = [['10:00','Rhea M.','Protein Straight Bond — Long'],['11:00','Carlo B.','Hair Cut / Blowdry / Iron'],['13:00','Angel T.','Microshading'],['15:30','Nica F.','Organic Hair Color']].map((b) => ({ time: b[0], client: b[1], service: b[2], pick: () => { this.setState({ cart: [{ k: b[2], qty: 1 }], cust: b[1] + ' · booking ' + b[0], done: false }); } }));
+    let reg = 0, tot = 0;
+    const lines = st.cart.map((x) => { const s = ALL[x.k]; reg += s[1] * x.qty; tot += s[2] * x.qty; return { name: s[0], qty: x.qty, unit: peso(s[2]), total: peso(s[2] * x.qty), inc: () => setQty(s[0], 1), dec: () => setQty(s[0], -1) }; });
+    const empty = st.cart.length === 0;
+    const tenderAmt = st.tender || tot;
+    const tenders = [['Exact', 0], ['₱500', 500], ['₱1,000', 1000], ['₱5,000', 5000]].map((x) => { const on = st.tender === x[1]; return { label: x[0], border: on ? '#D6246E' : '#E6CBD5', bg: on ? '#FDE7EE' : '#FFFDFB', pick: () => this.setState({ tender: x[1] }) }; });
+    const pays = ['Cash','GCash','Maya','Card'].map((p) => { const on = st.pay === p; return { label: p, border: on ? '#D6246E' : '#E6CBD5', bg: on ? '#D6246E' : '#FFFDFB', fg: on ? '#FFFFFF' : '#2A2627', pick: () => this.setState({ pay: p }) }; });
+    const change = tenderAmt - tot;
+    const t = { reg: peso(reg), disc: peso(tot - reg), discAbs: peso(reg - tot), total: peso(tot), change: change >= 0 ? peso(change) : 'Short ' + peso(-change) };
+    const W = [['Tue', 14200], ['Wed', 12850], ['Thu', 15900], ['Fri', 21300], ['Sat', 26750], ['Sun', 19400], ['Today', 18640]];
+    const week = W.map((w, i) => ({ day: w[0], amt: '₱' + (w[1] / 1000).toFixed(1) + 'k', h: Math.round(w[1] / 26750 * 150) + 'px', bg: i === 6 ? '#D6246E' : '#F7A8C4' }));
+    const SS = { Paid: ['#E3EDF8', '#1D4F8C'], Refunded: ['#FCEFD9', '#8A5100'] };
+    const tx = [
+      ['JOA-MP-000230','11:42','Carlo B.','Hair Cut / Blowdry / Iron','Jun','Cash',199,'Paid'],
+      ['JOA-MP-000229','10:55','Kristine D.','Classic Lash — Natural','Mae','GCash',499,'Paid'],
+      ['JOA-MP-000228','10:20','Joy P.','Korean Signature Facial','Grace','Maya',749,'Paid'],
+      ['JOA-MP-000227','09:48','Lyn A.','Microshading','Mae','Card',999,'Refunded'],
+      ['JOA-MP-000226','09:30','Jessa L.','Gel Manicure, Simple Design ×2','Liza','GCash',899,'Paid'],
+      ['JOA-MP-000225','09:05','Maria S.','Hair Cut / Blowdry / Iron','Ana','Cash',199,'Paid'],
+      ['JOA-MP-000224','08:40','Rose V.','Organic Hair Color, Procare Keratin','Ana','Cash',1748,'Paid']
+    ].map((r) => ({ no: r[0], time: r[1], client: r[2], items: r[3], staff: r[4], pay: r[5], amt: peso(r[6]), status: r[7], deco: r[7] === 'Refunded' ? 'line-through' : 'none', sbg: SS[r[7]][0], sfg: SS[r[7]][1] }));
+    const kpis = [['Sales today','₱18,640','24 transactions · 4 branches'],['Average spend per visit','₱777','Up from ₱702 last Monday'],['Promo discounts given','₱17,900','50% OFF All Services'],['Refunds','₱999','1 transaction']].map((k) => ({ label: k[0], value: k[1], note: k[2] }));
+    const methods = [['Cash', 9690], ['GCash', 6340], ['Maya', 1490], ['Card', 1120]].map((m) => ({ name: m[0], amt: peso(m[1]), w: Math.round(m[1] / 9690 * 100) + '%' }));
+    const top = [['Hair Cut / Blowdry / Iron', 6, 1194], ['Gel Manicure', 4, 1996], ['Classic Lash — Natural', 3, 1497], ['Korean Signature Facial', 3, 2247], ['Protein Straight Bond', 1, 3999]].map((s) => ({ name: s[0], n: s[1] + '×', amt: peso(s[2]) }));
+    return { tabs, isReg: st.tab === 'reg', isHist: st.tab === 'hist', cats, tiles, bookings, lines, empty, customer: st.cust, t, pays, tenders, isCash: st.pay === 'Cash', isRef: st.pay === 'GCash' || st.pay === 'Maya', showTicket: !st.done, done: st.done, payLabel: st.pay, chargeBg: empty ? '#E7C3D1' : '#D6246E', charge: () => { if (!empty) this.setState({ done: true }); }, clear: () => this.setState({ cart: [], cust: 'Walk-in customer', done: false, tender: 0 }), week, tx, kpis, methods, top };
+  }
+}
+
+JOA.mount(Component);
+</script>
+</body>
+</html>

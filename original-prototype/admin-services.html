@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOA Admin — Services &amp; prices</title>
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div id="app"></div>
+
+<template id="view">
+<div style="font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #2A2627; background: #FFF8F4; font-size: 14px; line-height: 1.5; min-height: 100vh; display: flex; flex-wrap: wrap">
+
+<aside style="flex: 1 1 232px; max-width: 100%; background: #2A2627; border-right: 1px solid #2A2627; padding: 20px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<img src="images/logo-light.png" alt="JOA Spa &amp; Salon" style="height: 52px; width: auto; align-self: flex-start">
+<nav aria-label="Admin" style="display: flex; flex-direction: column; gap: 2px; font-weight: 600">
+<a href="admin-dashboard.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Dashboard</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">FRONT DESK</p>
+<a href="admin-bookings.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Bookings<span style="font-size: 11px; background: #D6246E; color: #FFFFFF; border-radius: 999px; padding: 1px 8px">3</span></a>
+<a href="admin-calendar.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Calendar</a>
+<a href="admin-customers.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Customers</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SALES &amp; EXPENSES</p>
+<a href="admin-pos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Sales tracking</a>
+<a href="admin-expenses.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Expenses</a>
+<a href="admin-promos.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Promos</a>
+<a href="admin-reports.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Reports</a>
+<p style="margin: 14px 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: #B9AEAA">SETUP</p>
+<a href="admin-services.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; background: #D6246E; color: #FFFFFF; text-decoration: none; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">Services &amp; prices</a>
+<a href="admin-branches.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Branches &amp; hours</a>
+<a href="admin-staff.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Staff &amp; schedules</a>
+<a href="admin-settings.html" style="display: flex; align-items: center; min-height: 42px; padding: 0 14px; border-radius: 10px; color: #E9E1DA; text-decoration: none">Settings</a>
+</nav>
+<a href="index.html" style="margin-top: auto; display: flex; align-items: center; min-height: 42px; padding: 0 14px; font-weight: 600; color: #C8A96E">View website ↗</a>
+</aside>
+
+<main style="flex: 999 1 640px; min-width: 0; padding: 24px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center">
+<div>
+<p style="margin: 0; font-size: 13px; color: #665859">98 services in 7 categories <span style="margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 8px; border-radius: 6px; background: #F1E8EA">SAMPLE DATA</span></p>
+<h1 style="margin: 2px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700">Services &amp; prices</h1>
+</div>
+<div style="display: flex; gap: 10px">
+<button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 1.5px solid #D6246E; background: #FFFDFB; color: #D6246E; font-family: inherit; font-weight: 600; cursor: pointer">Import CSV</button>
+<button type="button" style="min-height: 42px; padding: 0 18px; border-radius: 10px; border: 0; background: #D6246E; color: #FFFFFF; font-family: inherit; font-weight: 600; cursor: pointer; box-shadow: 0 10px 22px -10px rgba(214,36,110,0.65)">+ Add service</button>
+</div>
+</div>
+
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+<nav aria-label="Categories" style="flex: 1 1 200px; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; padding: 10px; display: flex; flex-direction: column; gap: 2px; font-weight: 600; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; background: #2A2627; color: #FFFFFF; text-decoration: none">Hair<span style="font-weight: 500">21</span></a>
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; color: #2A2627; text-decoration: none">Lashes &amp; Brows<span style="font-weight: 500; color: #665859">19</span></a>
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; color: #2A2627; text-decoration: none">Nails<span style="font-weight: 500; color: #665859">8</span></a>
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; color: #2A2627; text-decoration: none">Facial &amp; Skin<span style="font-weight: 500; color: #665859">15</span></a>
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; color: #2A2627; text-decoration: none">Aesthetics<span style="font-weight: 500; color: #665859">20</span></a>
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; color: #2A2627; text-decoration: none">Fillers &amp; PRP<span style="font-weight: 500; color: #665859">8</span></a>
+<a href="#" style="display: flex; justify-content: space-between; align-items: center; min-height: 42px; padding: 0 12px; border-radius: 10px; color: #2A2627; text-decoration: none">Spa &amp; Wellness<span style="font-weight: 500; color: #665859">7</span></a>
+</nav>
+
+<section style="flex: 999 1 640px; min-width: 0; background: #FFFDFB; border-radius: 16px; border: 1px solid #EFE1E4; overflow: hidden; box-shadow: 0 1px 2px rgba(42,38,39,0.05), 0 10px 28px -14px rgba(42,38,39,0.18)">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid #EFE1E4">
+<h2 style="margin: 0; font-size: 16px">Hair</h2>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600">Search<input type="search" placeholder="Service name" style="min-height: 38px; padding: 0 12px; border-radius: 10px; border: 1.5px solid #E6CBD5; font-family: inherit; font-size: 13px"></label>
+</div>
+<div style="overflow-x: auto">
+<div style="min-width: 820px">
+<div style="display: grid; grid-template-columns: minmax(0, 2.4fr) 80px 96px 120px minmax(0, 1.3fr) 70px; gap: 12px; padding: 10px 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #665859; background: #FFF5F7"><span>SERVICE</span><span>DURATION</span><span style="text-align: right">REGULAR</span><span style="text-align: right">PROMO PRICE</span><span>BRANCHES</span><span>ONLINE</span></div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+<div style="display: grid; grid-template-columns: minmax(0, 2.4fr) 80px 96px 120px minmax(0, 1.3fr) 70px; gap: 12px; padding: 9px 20px; align-items: center; border-top: 1px solid #F8EDF0">
+<span style="font-weight: 600">{{r.name}}</span>
+<span style="color: #665859">{{r.dur}}</span>
+<span style="text-align: right">{{r.reg}}</span>
+<span style="text-align: right"><strong style="color: #D6246E">{{r.promo}}</strong><span style="display: block; font-size: 11px; color: #665859">{{r.rule}}</span></span>
+<span style="display: flex; gap: 4px; flex-wrap: wrap"><span style="font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: #F8EDF0">MP</span><span style="font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: #F8EDF0">P4B</span><span style="font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: #F8EDF0">VAL</span><span style="font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: #F8EDF0">MAR</span></span>
+<label style="display: flex; align-items: center; min-height: 36px" aria-label="Bookable online"><input type="checkbox" checked="" style="accent-color: #D6246E; width: 20px; height: 20px"></label>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</template>
+
+<script src="js/joa.js"></script>
+<script>
+class Component extends JOA.Component {
+  renderVals() {
+    const peso = (n) => '₱' + n.toLocaleString('en-US');
+    const H = [
+      ['Hair Cut / Blowdry / Iron',399,199,45],['Hair Setting',499,249,60],['Wash / Blowdry / Iron',499,249,45],['Dandruff Treatment',1499,749,60],['Leidi Hair Color',999,499,90],['Organic Hair Color',1999,999,120],['Natural Hair Color',1499,749,120],['No-Ammonia Hair Color',2999,1499,120],['Highlights Alone',1499,749,120],['Permanent Curl',2499,1249,150],['Natural Rebond',3499,1749,180],['L’Oréal Rebond',3499,1749,180],['Organic Natural Rebond',2999,1499,180],['Leidi Rebond',1999,999,180],['Balayage / Brazilian Treatment',4999,2499,180],['iCure Keratin Blowout Treatment',2499,1249,120],['Procare Keratin Treatment',1499,749,90],['Silky Straight Protein Treatment',2999,1499,150],['Protein Straight Bond — Short',5999,2499,180,'Fixed price'],['Protein Straight Bond — Medium',6999,3499,210,'Fixed price'],['Protein Straight Bond — Long',7999,3999,240,'Fixed price']
+    ];
+    const rows = H.map((r) => ({ name: r[0], reg: peso(r[1]), promo: peso(r[2]), dur: r[3] + ' min', rule: r[4] || '50% OFF' }));
+    return { rows };
+  }
+}
+
+JOA.mount(Component);
+</script>
+</body>
+</html>
