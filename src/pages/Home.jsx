@@ -1209,7 +1209,7 @@ export default function Home() {
 							Messenger
 						</a>
 						<Link to="/admin-dashboard" style={{ color: "#2A2627", textDecoration: "none", padding: "4px 0" }}>
-							Staff login
+							Admin panel
 						</Link>
 					</div>
 				</div>
