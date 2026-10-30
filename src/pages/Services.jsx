@@ -1,6 +1,7 @@
 import { Component as ReactComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { asset } from '../lib/asset.js';
+import SiteHeader from '../components/SiteHeader.jsx';
 
 export default class Services extends ReactComponent {
   constructor(props) {
@@ -218,87 +219,7 @@ export default class Services extends ReactComponent {
         >
           50% OFF ALL SERVICES · Limited time offer · Book now →
         </Link>
-        <header
-          style={{
-            background: '#FFFDFB',
-            borderBottom: '1px solid #F5D3DF',
-            boxShadow: '0 8px 28px -14px rgba(42,38,39,0.22)',
-            position: 'relative',
-            zIndex: '2',
-          }}
-        >
-          <div
-            style={{
-              maxWidth: '1240px',
-              margin: '0 auto',
-              padding: '14px 24px',
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '20px',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-          >
-            <Link to="/" aria-label="JOA Spa & Salon home" style={{ display: 'block' }}>
-              <img
-                src={asset('images/logo.png')}
-                alt="JOA Spa & Salon"
-                style={{ height: '64px', width: 'auto', display: 'block' }}
-              />
-            </Link>
-            <nav
-              aria-label="Main"
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '6px 30px',
-                alignItems: 'center',
-                fontSize: '13px',
-                fontWeight: '600',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <Link
-                to="/services"
-                style={{
-                  color: '#D6246E',
-                  textDecoration: 'none',
-                  padding: '10px 0',
-                  borderBottom: '2px solid #D6246E',
-                }}
-              >
-                Services
-              </Link>
-              <Link to="/" style={{ color: '#2A2627', textDecoration: 'none', padding: '10px 0' }}>
-                Promos
-              </Link>
-              <Link to="/" style={{ color: '#2A2627', textDecoration: 'none', padding: '10px 0' }}>
-                Branches
-              </Link>
-              <Link to="/admin-dashboard" style={{ color: '#2A2627', textDecoration: 'none', padding: '10px 0' }}>
-                Sign in
-              </Link>
-              <Link
-                to="/book"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  minHeight: '46px',
-                  padding: '0 26px',
-                  borderRadius: '999px',
-                  background: '#D6246E',
-                  color: '#FFFFFF',
-                  textDecoration: 'none',
-                  letterSpacing: '0.1em',
-                  boxShadow: '0 10px 22px -10px rgba(214,36,110,0.65)',
-                }}
-              >
-                Book now
-              </Link>
-            </nav>
-          </div>
-        </header>
+        <SiteHeader />
         <section
           style={{
             maxWidth: '1240px',

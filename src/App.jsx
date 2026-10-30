@@ -18,6 +18,7 @@ import AdminBranches from './pages/AdminBranches.jsx';
 import AdminStaff from './pages/AdminStaff.jsx';
 import AdminSettings from './pages/AdminSettings.jsx';
 import AdminCommission from './pages/AdminCommission.jsx';
+import { useReveal } from './lib/reveal.js';
 
 const ROUTES = [
   { path: '/', title: 'JOA Spa & Salon — Home', Page: Home },
@@ -40,7 +41,7 @@ const ROUTES = [
   { path: '/admin-settings', title: 'JOA Admin — Settings', Page: AdminSettings },
 ];
 
-// Sets the tab title and body class, and scrolls like a normal page load on navigation
+// Sets the tab title and body class, scrolls like a normal page load on navigation, and fades content in
 function PageShell({ title, bodyClass, children }) {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -56,6 +57,7 @@ function PageShell({ title, bodyClass, children }) {
     if (target) target.scrollIntoView();
     else window.scrollTo(0, 0);
   }, [pathname, hash]);
+  useReveal(pathname);
   return <div id="app">{children}</div>;
 }
 

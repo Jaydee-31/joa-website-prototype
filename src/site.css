@@ -58,6 +58,14 @@ body.mobile-preview { background: #EFE3E6; }
 }
 .screens li a:hover { border-color: var(--joa-pink); transform: translateY(-1px); }
 .screens li a span { font-weight: 400; font-size: 13px; color: var(--joa-muted); }
+.screens a.screens__home {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 46px; padding: 0 24px; border-radius: 999px;
+  background: var(--joa-pink); color: #FFFFFF; text-decoration: none;
+  font-weight: 600; letter-spacing: .06em;
+  box-shadow: 0 10px 22px -10px rgba(214, 36, 110, .65);
+}
+.screens a.screens__home:hover { background: var(--joa-pink-dark); color: #FFFFFF; }
 
 /* Admin layout: sidebar column on desktop; sticky top bar + slide-in drawer on narrow screens.
    872px = 232px sidebar + 640px content. Range syntax leaves no gap at fractional widths, and the
@@ -243,4 +251,99 @@ body.mobile-preview { background: #EFE3E6; }
 }
 @media (width <= 520px) {
   .admin-user__who { display: none; }
+}
+
+/* Subtle motion. Everything here is skipped for people who ask for reduced motion.
+   Uses the individual translate/scale properties so it never fights inline transforms. */
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll reveal: classes come from src/lib/reveal.js */
+  .reveal {
+    opacity: 0; translate: 0 14px;
+    transition: opacity .6s ease, translate .6s cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-revealed { opacity: 1; translate: none; }
+
+  /* Admin page change: panels come up out of a soft blur (classes from src/lib/reveal.js) */
+  .page-enter {
+    animation: joa-page-enter .45s cubic-bezier(.2, .7, .2, 1) backwards;
+    animation-delay: var(--enter-delay, 0ms);
+  }
+
+  /* Controls ease between states instead of snapping */
+  a, button, input, select, textarea {
+    transition: background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease, scale .12s ease;
+  }
+  button:not(:disabled):active { scale: .97; }
+
+  /* Photos inside links lift gently on hover (service categories, promo cards) */
+  section a img { transition: scale .35s cubic-bezier(.2, .7, .2, 1); }
+  section a:hover img { scale: 1.04; }
+
+  /* Pop-overs and dialogs */
+  .admin-user__menu:not([hidden]) { animation: joa-pop .16s cubic-bezier(.2, .7, .2, 1); transform-origin: top right; }
+  .admin-dialog[open] { animation: joa-pop .2s cubic-bezier(.2, .7, .2, 1); }
+  .admin-dialog[open]::backdrop { animation: joa-fade .2s ease; }
+}
+
+@keyframes joa-pop {
+  from { opacity: 0; scale: .96; translate: 0 -4px; }
+}
+@keyframes joa-fade {
+  from { opacity: 0; }
+}
+@keyframes joa-page-enter {
+  from { opacity: 0; translate: 0 18px; filter: blur(6px); }
+}
+
+/* Public site header (src/components/SiteHeader.jsx). Sticky on wider screens so the
+   active-section highlight stays in view; the nav wraps onto extra rows on phones, so it scrolls away there. */
+.site-header {
+  position: relative; z-index: 30;
+  background: rgba(255, 253, 251, .94); backdrop-filter: blur(10px);
+  border-bottom: 1px solid #F5D3DF;
+  box-shadow: 0 8px 28px -14px rgba(42, 38, 39, .22);
+}
+.site-header__inner {
+  max-width: 1240px; margin: 0 auto; padding: 14px 24px;
+  display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center;
+}
+.site-header__logo { display: block; }
+.site-header__logo img { height: 64px; width: auto; display: block; }
+
+.site-nav {
+  display: flex; flex-wrap: wrap; gap: 6px 30px; align-items: center;
+  font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+}
+.site-nav a.site-nav__link { position: relative; padding: 10px 0; color: var(--joa-ink); text-decoration: none; }
+.site-nav a.site-nav__link::after {
+  content: ''; position: absolute; left: 0; right: .14em; bottom: 2px; height: 2px; border-radius: 2px;
+  background: var(--joa-pink); transform: scaleX(0); transform-origin: left;
+}
+.site-nav a.site-nav__link:hover { color: var(--joa-pink); }
+.site-nav a.site-nav__link.is-active { color: var(--joa-pink); }
+.site-nav a.site-nav__link.is-active::after { transform: scaleX(1); }
+.site-nav a.site-nav__link:hover::after { transform: scaleX(.4); }
+.site-nav a.site-nav__link.is-active:hover::after { transform: scaleX(1); }
+
+.site-nav a.site-nav__cta {
+  display: inline-flex; align-items: center; min-height: 46px; padding: 0 26px; border-radius: 999px;
+  background: var(--joa-pink); color: #FFFFFF; text-decoration: none; letter-spacing: .1em;
+  box-shadow: 0 10px 22px -10px rgba(214, 36, 110, .65);
+}
+.site-nav a.site-nav__cta:hover, .site-nav a.site-nav__cta.is-active { background: var(--joa-pink-dark); color: #FFFFFF; }
+
+@media (width >= 720px) {
+  .site-header { position: sticky; top: 0; }
+  /* Keep section headings clear of the sticky header when jumping to #promos etc. */
+  #app section[id] { scroll-margin-top: 92px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav a.site-nav__link::after { transition: transform .25s cubic-bezier(.2, .7, .2, 1); }
+}
+
+/* Wider admin sidebar on desktop. Between 872px and 1023px it keeps its 232px basis so the
+   640px content column still fits; from 1024px there's room for a roomier fixed width. */
+@media (width >= 1024px) {
+  .admin-sidebar { flex: 0 0 272px; }
 }

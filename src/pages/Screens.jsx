@@ -16,6 +16,13 @@ export default function Screens() {
             Clickable concept for the public website and the staff backend. All figures and bookings are sample data.
           </p>
         </div>
+        <Link to="/" className="screens__home">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 11l9-7 9 7" />
+            <path d="M5 10v10h5v-6h4v6h5V10" />
+          </svg>
+          Home
+        </Link>
       </header>
       <h2>PUBLIC WEBSITE</h2>
       <ul>
