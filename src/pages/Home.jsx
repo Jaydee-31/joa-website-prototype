@@ -410,7 +410,7 @@ export default function Home() {
 										fontSize: "14px",
 										boxShadow: "0 10px 22px -10px rgba(214,36,110,0.65)",
 									}}>
-									Book this
+									Book now
 								</Link>
 							</div>
 						</article>
@@ -472,7 +472,7 @@ export default function Home() {
 										fontSize: "14px",
 										boxShadow: "0 10px 22px -10px rgba(214,36,110,0.65)",
 									}}>
-									Book this
+									Book now
 								</Link>
 							</div>
 						</article>
@@ -534,7 +534,7 @@ export default function Home() {
 										fontSize: "14px",
 										boxShadow: "0 10px 22px -10px rgba(214,36,110,0.65)",
 									}}>
-									Book this
+									Book now
 								</Link>
 							</div>
 						</article>
@@ -596,7 +596,7 @@ export default function Home() {
 										fontSize: "14px",
 										boxShadow: "0 10px 22px -10px rgba(214,36,110,0.65)",
 									}}>
-									Book this
+									Book now
 								</Link>
 							</div>
 						</article>
